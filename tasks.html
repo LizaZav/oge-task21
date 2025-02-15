@@ -3,30 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задачи - Задача 21 ОГЭ</title>
+    <title>Тренировочные задания - Задача 21 ОГЭ</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
         header { background: #007bff; color: white; text-align: center; padding: 1em; font-size: 1.5em; }
         nav { display: flex; justify-content: center; background: #0056b3; padding: 0.5em; }
         nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 1.2em; }
-        .container { padding: 20px; max-width: 900px; margin: auto; background: white; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); text-align: center; }
-        h2 { color: #0056b3; }
+        .container { padding: 20px; max-width: 900px; margin: auto; background: white; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+        h2 { color: #0056b3; text-align: center; }
         img { width: 100%; border-radius: 8px; margin-top: 15px; }
+        .task { background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+        .hint { display: none; background: #d1ecf1; padding: 10px; border-radius: 5px; margin-top: 10px; }
+        button { margin-top: 10px; padding: 8px 12px; font-size: 1em; cursor: pointer; }
     </style>
+    <script>
+        function checkAnswer(taskNumber, correctAnswer) {
+            let userAnswer = document.getElementById('answer' + taskNumber).value;
+            let result = document.getElementById('result' + taskNumber);
+            if (userAnswer == correctAnswer) {
+                result.textContent = 'Правильно!';
+                result.style.color = 'green';
+            } else {
+                result.textContent = 'Неправильно, попробуйте еще раз.';
+                result.style.color = 'red';
+            }
+        }
+        function showHint(taskNumber) {
+            document.getElementById('hint' + taskNumber).style.display = 'block';
+        }
+    </script>
 </head>
 <body>
-    <header>Задачи - Задача 21 ОГЭ</header>
+    <header>Тренировочные задания - Задача 21 ОГЭ</header>
     <nav>
         <a href="index.html">Главная</a>
         <a href="theory.html">Теория</a>
         <a href="examples.html">Примеры</a>
-        <a href="tasks.html">Задачи с ответами</a>
+        <a href="tasks.html">Тренировочные задания</a>
     </nav>
     
     <div class="container">
-        <h2>Задачи с ответами</h2>
+        <h2>Тренировочные задания</h2>
         <p>Решите задачи и проверьте себя!</p>
-        <img src="images/tasks.jpg" alt="Задачи с ответами">
+        <img src="images/tasks.jpg" alt="Тренировочные задания">
+
+        <div class="task">
+            <p><strong>Задача 1:</strong> Сколько граммов соли нужно добавить к 500 г 10%-ного раствора, чтобы получить 20%-ный раствор?</p>
+            <input type="number" id="answer1"> 
+            <button onclick="checkAnswer(1, 62.5)">Проверить</button>
+            <p id="result1"></p>
+            <button onclick="showHint(1)">Подсказка</button>
+            <div id="hint1" class="hint">
+                <p><strong>Решение:</strong> Пусть x - масса соли. Тогда (50 + x) / (500 + x) = 0.2. Решая уравнение, получаем x = 62.5 г.</p>
+            </div>
+        </div>
+
+        <div class="task">
+            <p><strong>Задача 2:</strong> В 600 г 15%-ного раствора добавили 200 г 30%-ного раствора. Найдите массовую долю вещества.</p>
+            <input type="number" id="answer2"> 
+            <button onclick="checkAnswer(2, 18.75)">Проверить</button>
+            <p id="result2"></p>
+            <button onclick="showHint(2)">Подсказка</button>
+            <div id="hint2" class="hint">
+                <p><strong>Решение:</strong> Найдем массу вещества в каждом растворе: 600 * 0.15 + 200 * 0.3 = 90 + 60 = 150 г. Общая масса раствора: 600 + 200 = 800 г. Массовая доля: 150/800 = 18.75%.</p>
+            </div>
+        </div>
+
+        <div class="task">
+            <p><strong>Задача 3:</strong> К 500 г 10%-ного раствора добавили 100 г чистого вещества. Какова массовая доля вещества в новом растворе?</p>
+            <input type="number" id="answer3"> 
+            <button onclick="checkAnswer(3, 25)">Проверить</button>
+            <p id="result3"></p>
+            <button onclick="showHint(3)">Подсказка</button>
+            <div id="hint3" class="hint">
+                <p><strong>Решение:</strong> Масса вещества в исходном растворе: 500 * 0.1 = 50 г. После добавления 100 г вещества, новая масса раствора 500 + 100 = 600 г. Массовая доля: (50 + 100) / 600 = 25%.</p>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
